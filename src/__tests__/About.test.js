@@ -1,3 +1,6 @@
+/* eslint-disable testing-library/prefer-presence-queries */
+/* eslint-disable testing-library/no-container */
+/* eslint-disable testing-library/no-node-access */
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
@@ -11,6 +14,7 @@ test("renders a <p> element with the bio from props", () => {
 
 test("does not render a <p> element if the bio is not included in props", () => {
   const { container } = render(<About links={user.links} />);
+  // eslint-disable-next-line testing-library/no-container
   expect(container.querySelector("p")).toBeNull();
 });
 
